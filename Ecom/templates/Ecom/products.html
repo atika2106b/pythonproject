@@ -1,0 +1,4 @@
+{% for products_item in myproducts %}
+<img src="{{ products_item.product_image.url }}" alt="" height="400px" width="auto">
+<h1>{{ products_item.name }}</h1>
+{% endfor %}

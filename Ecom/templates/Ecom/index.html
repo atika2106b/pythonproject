@@ -1,0 +1,15 @@
+{% extends "Ecom/layout/main.html" %}
+
+{% block myblock %}
+<h1>
+   {% for items in category %}
+   <a href="{% url 'productviwes' items.slug %}" > 
+   <img src="{{ items.image.url }}" alt="" height="400px" width="auto">
+   </a>
+   <h1>{{items.name}}</h1>
+   {% endfor %}
+
+</h1>
+{% comment %} <img src="static/uploads/20231016095018images.jpg" height="40px" width="auto"> {% endcomment %}
+
+{% endblock myblock %}
