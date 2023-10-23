@@ -11,6 +11,5 @@ def productviwes(request,myslug):
         product=Product.objects.filter(category__slug=myslug)
         context={'myproducts':product}
         return render(request,'Ecom/products.html',context)
-def register(request):
-    return render(request,'Ecom/register.html')        
+     
 # Create your views here.
