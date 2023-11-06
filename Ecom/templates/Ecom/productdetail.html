@@ -1,0 +1,19 @@
+{% extends "Ecom/layout/main.html" %}
+
+{% block myblock %}
+
+<div class="card" style="width: 18rem;">
+    <img src="{{singleprod.product_image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{singleprod.name}}</h5>
+      <p class="card-text">
+        {{singleprod.description}}
+    </p>
+    </div>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+
+{% endblock myblock %}

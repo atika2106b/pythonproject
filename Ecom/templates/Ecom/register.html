@@ -1,0 +1,47 @@
+{% extends "Ecom/layout/main.html" %}
+
+{% block myblock %}
+<div>
+    <div class="row">
+    <div class="col-lg-8 mx-auto mt-5">
+        <form action="" method="post">
+            {% csrf_token %}
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="name">Your Name</label>
+                {{form.username}}
+                {% if form.errors.username %}
+                    <label class="text-danger"> {{ form.errors.username }} </label>
+                {% endif %}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="email">Your Email</label>
+              {{form.email}}
+              {% if form.errors.email %}
+              <label class="text-danger"> {{ form.errors.email }} </label>
+                {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pass">Password</label>
+            {{form.password1}}
+            {% if form.errors.password1 %}
+              <label class="text-danger"> {{ form.errors.password1 }} </label>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="con_pass">Confirm Password</label>
+            {{form.password2}}
+            {% if form.errors.password2 %}
+                <label class="text-danger"> {{ form.errors.password2 }} </label>
+            {% endif %}
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+{% endblock myblock %}
