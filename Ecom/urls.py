@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from Ecom.controller import  authview
+from Ecom.controller import  authview,cart
 
 urlpatterns= [
 
@@ -12,7 +12,13 @@ urlpatterns= [
 
 
     path('register',authview.register , name="register"),
-    path('login',authview.login , name="login")
+    path('login',authview.login , name="login"),
+
+
+    path('add-to-cart',cart.addtocart,name="addtocart")
+
+
+    
 
     
 ]

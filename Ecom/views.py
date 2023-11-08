@@ -17,7 +17,7 @@ def productDetails(request,cat_slug,prod_slug):
     if(Category.objects.filter(slug=cat_slug , status=0)):
         if(Product.objects.filter(slug=prod_slug, status=0)):
             product=Product.objects.filter(slug=prod_slug,status=0).first
-            context={'singleprod':product}
+            context={'products':product}
         else:
             return redirect("/")
     else:
