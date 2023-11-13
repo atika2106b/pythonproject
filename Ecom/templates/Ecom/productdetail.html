@@ -2,18 +2,41 @@
 
 {% block myblock %}
 
-<div class="card" style="width: 18rem;">
-    <img src="{{singleprod.product_image.url}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{singleprod.name}}</h5>
-      <p class="card-text">
-        {{singleprod.description}}
-    </p>
+   <div class="card product_data" style="width: 18rem;">
+        {% if products.tag %}
+       <label class = "product-viewtag">{{products.tag}}</label>
+    {% endif %}
+    <div class="col-md-2">
+        {% if products.quantity > 0 %}
+          <label class="badge bg-success">In Stock</label>
+        {% else %}
+            <label class="badge bg-danger">Out of Stock </label>
+        {% endif %}
+
     </div>
+    <img src="{{products.product_image.url}}" class="card-img-top" alt="...">
     <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <h5 class="card-title">Card title</h5>
+      <div class="col-md-4">
+        {% csrf_token %}
+        <input type="hidden" class="prod_id" value="{{ products.id }}" name="">
+        <div>quantity</div>
+            <div class="input-group text-center mb-3" style="width: 130px;">
+                <button class="input-group-text decrement-btn">-</button>
+                <input type="text" name="quantity" class="form-control text-center qty-input" value ="1" id="">
+                <button class="input-group-text increment-btn">+</button> 
+            </div>
+      </div>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="col md-4">
+        {% if products.quantity > 0 %}
+            <button type="button" class="btn btn-primary addToCartBtn">add to cart</button>
+        {% endif %}
+        <button type="button" class="btn btn-primary addToWishlist">add to wishlist</button>
+
+      </div>
+      
     </div>
-  </div>
+</div>
 
 {% endblock myblock %}

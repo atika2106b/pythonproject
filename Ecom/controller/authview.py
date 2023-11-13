@@ -14,7 +14,7 @@ def register(request):
     context={'form':form}
     return render(request,'Ecom/register.html',context)   
 
-def login(request):
+def loginpage(request):
     
     if request.method=="POST":
 

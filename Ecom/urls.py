@@ -8,11 +8,9 @@ urlpatterns= [
     path('productviwes/<str:myslug>',views.productviwes , name="productviwes"),
     path('productDetails/<str:cat_slug>/<str:prod_slug>', views.productDetails , name="productDetails"),
 
-
-
-
     path('register',authview.register , name="register"),
-    path('login',authview.login , name="login")
+    path('login',authview.loginpage , name="login"),
+    path('addtocart',views.addtocart , name="addtocart")
 
     
 ]
